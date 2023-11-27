@@ -16,13 +16,13 @@ export class ViewComponent implements OnInit {
   probList:any={};
   leadStatus:any=[];
   leadDatas:any=[];
+  active = 1;
 
   ngOnInit(): void {
     this.userDetails();
     this.graphDatas();
-    // this.buttonValue = "won";
-    // this.probabilityDatas();
-    // this.leadList();
+    this.probabilityDatas();
+    this.leadList();
 
   }
 

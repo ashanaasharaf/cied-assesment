@@ -71,8 +71,8 @@
 <div class="container-fluid dashBoard">
   <section class="innerContent">
     <h3 class="innerTitle">Welcome to Lead tracker!</h3>
-    <ul ngbNav #nav="ngbNav" class="nav-tabs">
-      <li ngbNavItem class="navTabItem" *ngFor="let element of graphList;">
+    <ul ngbNav #nav="ngbNav" class="nav-tabs" [(activeId)]="active">
+      <li ngbNavItem class="navTabItem" [ngbNavItem]=active *ngFor="let element of graphList;">
         <button ngbNavLink (click)="onTabChange(element?.stage_type)">{{ element.stage_type }}({{element.value}})</button>
         <ng-template ngbNavContent>
           <div class="tabContent">
@@ -139,7 +139,7 @@
                 </div> -->
               </div>
             </div>
-            <div class="activeLeadStatus">
+            <div class="activeLeadStatus" *ngIf="buttonValue == 'active'">
               <h4 class="dashHeading">Active leads status</h4>
               <div class="d-flex leadBoxList">
                 <div class="leadBoxItem active" *ngFor="let lead of leadStatus;let i=index">
