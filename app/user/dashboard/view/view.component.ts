@@ -10,7 +10,7 @@ export class ViewComponent implements OnInit {
 
   constructor(private apiService: ApiService) { }
 
-  buttonValue: string = "won";
+  buttonValue: string = "active";
   userList:any=[];
   graphList:any=[];
   probList:any={};
@@ -67,7 +67,10 @@ export class ViewComponent implements OnInit {
     try {
       this.apiService.graphData(this.buttonValue).subscribe((res: any) => {
         if (res.success) {
+          let x = 0;
+          let y =1;
           this.graphList=res?.data?.stage_type_count;
+          this.graphList[x] = this.graphList.splice(y, 1, this.graphList[x])[0];
         }else{
           this.graphList=[];
         }

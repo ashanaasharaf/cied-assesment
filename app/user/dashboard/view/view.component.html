@@ -89,7 +89,7 @@
                       </p>
                       <span class="progressLabel">{{ probList.low_count }} Leads</span>
                       <div class="progress-bar" style="background: #C9ECDC;"
-                        [ngStyle]="{'width': probList.low_percent ? probList.low_percent + '%' : 1 }">
+                        [ngStyle]="{'width': probList.low_percent ? probList.low_percent + '%' : 0 }">
 
                       </div>
                     </div>
@@ -101,7 +101,7 @@
                       </p>
                       <span class="progressLabel">{{ probList.medium_count }} Leads</span>
                       <div class="progress-bar" style="background: #F9D8F8;"
-                        [ngStyle]="{'width': probList.medium_percent ? probList.medium_percent + '%' : 1}">
+                        [ngStyle]="{'width': probList.medium_percent ? probList.medium_percent + '%' : 0 }">
 
                       </div>
                     </div>
@@ -113,7 +113,7 @@
                       </p>
                       <span class="progressLabel">{{ probList.high_count }} Leads</span>
                       <div class="progress-bar" style="background: #F8CDD9;"
-                        [ngStyle]="{'width': probList.high_percent ? probList.high_percent + '%' : 1 }">
+                        [ngStyle]="{'width': probList.high_percent ? probList.high_percent + '%' : 0 }">
 
                       </div>
                     </div>
