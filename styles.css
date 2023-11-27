@@ -1,0 +1,546 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+@font-face {
+    font-family: 'Urbanist';
+    src: url('./assets/fonts/Urbanist-Bold.woff2') format('woff2'),
+        url('./assets/fonts/Urbanist-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Urbanist';
+    src: url('./assets/fonts/Urbanist-Medium.woff2') format('woff2'),
+        url('./assets/fonts/Urbanist-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Urbanist';
+    src: url('./assets/fonts/Urbanist-SemiBold.woff2') format('woff2'),
+        url('./assets/fonts/Urbanist-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+*{
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+html{
+    height:100%;
+}
+
+body {
+    font-family: 'Urbanist';
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+li{
+    list-style: none;
+}
+ul {
+    padding: 0;
+    margin: 0;
+
+}
+
+.LoginLt {
+    position: relative;
+}
+
+.loginLtWrap {
+ position: absolute;
+ bottom: 0;
+ right: 0;
+
+}
+.loginLtWrap img {
+    display: block;
+}
+
+
+.lgmainTitile {
+    font-size: 40px;
+    color:#000;
+    line-height: normal;
+}
+.lgLtMainTitle {
+    font-size: 40px;
+    color:#fff;
+    line-height: normal;
+    max-width: 450px;
+    width: 100%;
+}
+.log-image {
+    padding-bottom: 40px;
+}
+.lgLtSubTitle {
+    font-size: 16px;
+    font-weight: 500;
+    color:#FFF;
+    max-width: 450px;
+    width: 100%;
+    padding-bottom: 50px;
+    opacity: 0.5;
+}
+.lgFormTitle {
+    font-size: 40px;
+    color:#000;
+    line-height: normal;
+}
+.loginRt {
+    padding: 120px 90px;
+}
+.LgRtSubTitle {
+    font-size: 16px;
+    color:#000;
+    opacity: 0.5;
+    font-weight: 500;
+    line-height: normal;
+    padding-bottom:20px;
+    font-family: 'Urbanist';
+}
+.loginFormWrap label{
+    color: #000;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.loginFormWrap  input {
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.20);
+}
+.lgRtbottomTxt {
+    font-size: 16px;
+    color: #000;
+    font-weight: 500;
+}
+.signUpTxt {
+    font-size: 16px;
+    color: #3454CF;
+    font-weight: 600;
+}
+.resetPswrdLink {
+    position: absolute;
+    top: 40px;
+    right: 20px;
+    color: #3454CF;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    cursor: pointer;
+}
+.loginBtn {
+    border-radius: 5px;
+    background: #3454CF;
+    margin-top: 25px;
+}
+.loginFormWrap {
+    font-size: 14px;
+    font-weight: 500;
+}
+/* ---End Login--------------------------- */
+.greyBg {
+    background: #1F2228;
+    padding: 15px 20px;
+    width: 102%;
+}
+.dashLogo img {
+    max-width: 35px;
+    width: 100%;
+}
+.NavMenu li {
+    color: #FFF;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    opacity: 0.5;
+    position: relative;
+    cursor: pointer;
+}
+.NavMenu li:hover {
+    opacity: 1;
+
+}
+.NavMenu li.active::after  {
+    content: "";
+    position: absolute;
+    bottom: -33px;
+    background: #3454CF;
+    left: 0;
+    border-radius: 10px 10px 0px 0px;
+    width: 85%;
+    margin: auto;
+    height: 6px;
+}
+
+.MenuLogoWrap, .NavMenu ul {
+    column-gap: 40px;
+}
+.headLTMenu {
+    column-gap: 80px;
+}
+.searchWrap {
+    max-width: 370px;
+    width: 100%;
+}
+.searchWrap input {
+    border-radius: 27.5px;
+    background: url('./assets/images/searchIcon.svg') 4% no-repeat, #35383E;
+    border: none;
+    max-width: 370px;
+    width: 100%;
+    color: #FFF;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    padding: 0 40px;
+    height: 40px;
+}
+.addBtnWrap {
+    width: 40%;
+}
+.addBtn{
+    border-radius: 27.5px;
+    background: #3454CF;
+    padding: 0 15px;
+    height: 42px;
+    color: #FFF;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    max-width: 315px;
+    width: 100%;
+    border: none;
+    margin-left: 20px;
+}
+.accntSettingMenuWrap{
+    column-gap: 20px;
+}
+.profileName {
+    color: #FFF;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin: 0;
+}
+.profileSubTxt {
+    color: #FFF;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    opacity: 0.5;
+}
+.headIconBg{
+    border-radius: 27.5px;
+    background: #35383E;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.innerContent {
+    padding: 120px 50px 40px;
+    background: #F8FAFB;
+}
+
+.innerTitle {
+    color: #000;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    padding-bottom: 44px;
+}
+.innerContent .nav-tabs {
+    column-gap: 20px;
+    border: none;
+}
+.navTabItem button {
+    background: none;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.navTabItem .nav-link.active, .navTabItem button:hover  {
+    border-radius: 27.5px;
+    background: #3454CF;
+    color: #fff;
+}
+
+.tabContent{
+    padding: 30px 0 0;
+}
+.dashHeading {
+    color: #000;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.progress {
+    position: relative;
+    height: 56px;
+}
+.progress  p {
+    position: absolute;
+    top: 18px;
+    left: 12px;
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+    color: #000;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin: 0;
+}
+.progressLabel {
+    position: absolute;
+    top: 12px;
+    right: 10px;
+    color: #000;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.progressWrap {
+    padding-bottom: 40px;
+}
+.probablity .container {
+    padding: 10px 0px 40px;
+    margin: 0;
+} 
+.problityStatus {
+    width: fit-content;
+    border-radius:15px;
+    height: 24px;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.problityStatus.medium {
+    background: #F9D8F8;
+    color: #853282;
+}
+.low {
+    color: #8E4358;
+    background: #F8CDD9;
+}
+.high {
+    background: #C9ECDC;
+    color: #3C7E60;
+}
+.leadBoxList {
+    column-gap: 20px;
+}
+.leadBoxItem{
+    border-radius: 5px;
+    background: #FFF;
+    padding: 25px 0 0 25px;
+    max-width: 232px;
+    width: 100%;
+    color: #000;
+    margin-bottom: 20px;
+    max-width: calc(25% - 10px);
+    flex-basis: calc(25% - 10px);
+    flex-wrap: wrap;
+}
+.leadBoxItem h5 {
+  
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal; 
+}
+.leadBoxItem p {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.leadBoxItem:hover {
+    color: #fff;
+    border-radius: 5px;
+    background: #3454CF;
+    box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.15);
+}
+
+.tablestructureWrap {
+    padding: 40px 0 12px;
+}
+.headingTableSearch {
+    column-gap: 20px;
+}
+.tableSearch input {
+    border-radius: 27.5px;
+    border: 1px solid rgba(0, 0, 0, 0.10);   
+    background: url('./assets/images/searchGreybg.svg') 4% no-repeat, #FFF;
+    height: 40px;
+    opacity: 0.5;
+    max-width: 205px;
+    width: 100%;
+    padding: 0 0 0 40px ;
+  
+}
+.tableSearch::placeholder {
+    color: #000;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    opacity: 0.5;
+}
+table {
+    border: none;
+    margin-top: 20px;
+}
+tbody tr {
+    border-radius: 5px;
+    background: #FFF;
+    border: none;
+    margin: 10px 0;
+}
+.table thead {
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background: #FFF;
+}
+.table td, .table th, .table thead th {
+    border: none;
+}
+.table th {
+    color: #000;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    opacity: 0.5;
+}
+.table td {
+    margin-bottom: 10px;
+    color: #000;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+   
+}
+.viewallBtn {
+    height: 40px;
+    border-radius: 27.5px;
+    background: #3454CF;
+    padding: 0 12px;
+    color: #FFF;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    border: none;
+    max-width: 117px;
+    width: 100%;
+    cursor: pointer;
+    border: 1px solid #3454CF;
+}
+.viewallBtn:hover {
+    background: #fff;
+    color: #3454CF;
+    border: 1px solid #3454CF;
+}
+.leadDesc {
+    align-items: center;
+    display: flex;
+    column-gap: 20px;
+}
+.leadDesc img {
+    width: 30px;
+    height: 30px;
+}
+@media screen and (max-width: 1400px) {
+
+    .dash-logo {
+        max-width: 453px;
+        width: 100%;
+    }
+    .innerContent {
+        padding: 140px 20px 40px;
+    }
+   .dashBoard.container-fluid {
+        padding: 0;
+
+    }
+
+}
+@media screen and (max-width: 1200px) {
+    .lgFormTitle, .lgLtMainTitle {
+        font-size: 35px;
+    }
+    .loginRt {
+        padding: 90px 60px;
+    }
+    .innerContent {
+        padding: 175px 20px 40px;
+    }
+    .leadBoxItem{ 
+        max-width: calc(33.33% - 10px);
+        flex-basis: calc(33.33% - 10px);
+    }
+}
+
+@media screen and (max-width: 990px) {
+    .lgLtMainTitle, .lgLtSubTitle {
+        padding-left:20px
+    }
+    .loginLtWrap {
+        right: 0;
+        left: 24px;
+    }
+    .loginRt {
+        padding: 60px 30px;
+    }
+    .loginLtWrap {
+        top: 0;
+        bottom: unset;
+    }
+
+}
+    @media screen and (max-width: 490px) {
+    .loginRt {
+        padding: 60px 15px;
+    }
+    .lgFormTitle, .lgLtMainTitle {
+        font-size: 30px;
+    }
+    .lgLtSubTitle, .LgRtSubTitle {
+        font-size: 14px;
+    } 
+    .loginBtn{
+        margin-top: 15px;
+    }
+}

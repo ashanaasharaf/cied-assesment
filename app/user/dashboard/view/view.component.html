@@ -1,0 +1,260 @@
+<!-- <p>view works!</p>
+
+<ul class="nav nav-pills">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" (click)="onTabChange(1)">Active</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link"  (click)="onTabChange(2)">Won</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link"  (click)="onTabChange(3)">Lost</a>
+    </li>
+  </ul> -->
+<header class="">
+  <nav class="navbar fixed-top navbar-expand-md navbar-dark mb-3 greyBg">
+    <div class="row w-100 align-items-center">
+      <div class="col-sm-2 col-md-3 col-lg-6">
+        <div class="MenuLogoWrap d-flex align-items-center">
+          <div class="dashLogo">
+            <img src="../../../../assets/images/image 10.png" alt="Logo">
+          </div>
+          <div class="NavMenu">
+            <ul class="d-flex">
+              <li class="active">
+                <a>DashBoards</a>
+              </li>
+              <li>
+                <a>Leads</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-sm-10 col-md-9 col-lg-6">
+        <div class="headLTMenu d-flex align-items-center ">
+          <div class="d-flex align-items-center">
+            <div class="searchWrap">
+              <input type="text" placeholder="search Leads">
+            </div>
+            <div class="addBtnWrap">
+              <button class="addBtn"><span>+</span> Add Leads</button>
+            </div>
+          </div>
+
+          <div class="accntSettingMenuWrap d-flex align-items-center">
+            <div class="accntWrap d-flex align-items-center">
+              <div class="profileImg">
+                <img src="../../../../assets/images/profile.svg" alt="Profile">
+              </div>
+              <div class="profileDesc ml-2">
+                <h5 class="profileName mt-2">{{userList?.first_name}} {{userList?.last_name}}</h5>
+                <p class="profileSubTxt">Lead tracker user</p>
+              </div>
+            </div>
+            <div class=" headIconBg settingsIconWrap">
+              <img src="../../../../assets/images/settingIcon.svg" alt="Setting Icon">
+            </div>
+            <div class="headIconBg">
+              <img src="../../../../assets/images/backIcon.svg" alt="Back Icon">
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </nav>
+</header>
+<div class="container-fluid dashBoard">
+  <section class="innerContent">
+    <h3 class="innerTitle">Welcome to Lead tracker!</h3>
+    <ul ngbNav #nav="ngbNav" class="nav-tabs">
+      <li ngbNavItem class="navTabItem" *ngFor="let element of graphList;">
+        <button ngbNavLink (click)="onTabChange(element?.stage_type)">{{ element.stage_type }}({{element.value}})</button>
+        <ng-template ngbNavContent>
+          <div class="tabContent">
+            <div class="row d-flexs">
+              <div class="progressWrap col-lg-6">
+                <h4 class="dashHeading">Probabilities</h4>
+                <div class="progressItem probablity">
+
+                  <div class="container text-center" *ngIf="probList">
+                    <div class="progress">
+                      <p class="">
+                        <span>{{probList.low_percent}}%</span>
+                        <span>low probablity to win</span>
+                      </p>
+                      <span class="progressLabel">{{ probList.low_count }} Leads</span>
+                      <div class="progress-bar" style="background: #C9ECDC;"
+                        [ngStyle]="{'width': probList.low_percent ? probList.low_percent + '%' : 1 }">
+
+                      </div>
+                    </div>
+
+                    <div class="progress mt-2">
+                      <p class="">
+                        <span>{{probList.medium_percent}}%</span>
+                        <span>medium probablity to win</span>
+                      </p>
+                      <span class="progressLabel">{{ probList.medium_count }} Leads</span>
+                      <div class="progress-bar" style="background: #F9D8F8;"
+                        [ngStyle]="{'width': probList.medium_percent ? probList.medium_percent + '%' : 1}">
+
+                      </div>
+                    </div>
+
+                    <div class="progress mt-2">
+                      <p class="">
+                        <span>{{probList.high_percent}}%</span>
+                        <span>highly probablity to win</span>
+                      </p>
+                      <span class="progressLabel">{{ probList.high_count }} Leads</span>
+                      <div class="progress-bar" style="background: #F8CDD9;"
+                        [ngStyle]="{'width': probList.high_percent ? probList.high_percent + '%' : 1 }">
+
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+              <div class="graph col-lg-6">
+                <h4 class="dashHeading">Graph</h4>
+                <!-- <div style="display: block">
+                  <canvas mdbChart
+                    [chartType]="chartType"
+                    [datasets]="chartDatasets"
+                    [labels]="chartLabels"
+                    [colors]="chartColors"
+                    [options]="chartOptions"
+                    [legend]="true"
+                    (chartHover)="chartHovered($event)"
+                    (chartClick)="chartClicked($event)">
+                  </canvas>
+                </div> -->
+              </div>
+            </div>
+            <div class="activeLeadStatus">
+              <h4 class="dashHeading">Active leads status</h4>
+              <div class="d-flex leadBoxList">
+                <div class="leadBoxItem active" *ngFor="let lead of leadStatus;let i=index">
+                  <h5>{{lead?.name}}</h5>
+                  <p>{{lead?.lead_count}}</p>
+                </div>
+              </div>
+            </div>
+            <div class="tablestructureWrap">
+              <div class="headingTableSearch d-flex align-items-center">
+                <h4 class="dashHeading">Recently active leads</h4>
+                <div class="tableSearch">
+                  <input type="text" placeholder="Search Leads">
+                </div>
+              </div>
+              <div class="table-responsive">
+                <table class=" table b-0 w-100">
+                  <thead>
+                    <th>Lead name</th>
+                    <th>Date added</th>
+                    <th>Current state</th>
+                    <th>Probability</th>
+                    <th>Team size</th>
+                    <th>Location</th>
+                    <th>Revenue</th>
+                    <th>Catogory</th>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let leads of leadDatas;let i=index">
+                      <td class="leadDesc">
+                        <span><img src="../../../../assets/images/tabImg2.svg"></span>
+                        <span>{{leads?.name}}</span>
+                      </td>
+                      <td>{{leads?.created_on | date: 'dd MMM yyyy'}}</td>
+                      <td>Contact made</td>
+                      <td><span class="problityStatus medium ">Medium</span></td>
+                      <td>100-250 people</td>
+                      <td>Netherlands</td>
+                      <td>1-5 Million</td>
+                      <td>Agriculture</td>
+                    </tr>
+                    <!-- <tr>
+                      <td class="leadDesc">
+                        <span><img src="../../../../assets/images/tabImg2.svg"></span>
+                        <span>Samsung</span>
+                      </td>
+                      <td>28 NOV 2022</td>
+                      <td>Contact made</td>
+                      <td><span class="problityStatus low">low</span></td>
+                      <td>100-250 people</td>
+                      <td>Netherlands</td>
+                      <td>1-5 Million</td>
+                      <td>Agriculture</td>
+                    </tr> -->
+                    <!-- <tr>
+                      <td class="leadDesc">
+                        <span><img src="../../../../assets/images/tabImg3.svg"></span>
+                        <span class="">Facebook</span>
+                      </td>
+                      <td>28 NOV 2022</td>
+                      <td>Contact made</td>
+                      <td><span class="problityStatus high">High</span></td>
+                      <td>100-250 people</td>
+                      <td>Netherlands</td>
+                      <td>1-5 Million</td>
+                      <td>Agriculture</td>
+                    </tr> -->
+                    <!-- <tr>
+                      <td class="leadDesc">
+                        <span><img src="../../../../assets/images/tabImg4.svg"></span>
+                        <span class="">Xiaomi</span>
+                      </td>
+                      <td>28 NOV 2022</td>
+                      <td>Contact made</td>
+                      <td><span>Medium</span></td>
+                      <td>100-250 people</td>
+                      <td>Netherlands</td>
+                      <td>1-5 Million</td>
+                      <td>Agriculture</td>
+                    </tr> -->
+                    <!-- <tr>
+                      <td class="leadDesc">
+                        <span><img src="../../../../assets/images/tabImg5.svg"></span>
+                        <span class="">Channel</span>
+                      </td>
+                      <td>28 NOV 2022</td>
+                      <td>Contact made</td>
+                      <td><span>Medium</span></td>
+                      <td>100-250 people</td>
+                      <td>Netherlands</td>
+                      <td>1-5 Million</td>
+                      <td>Agriculture</td> -->
+                     
+                  </tbody>
+                </table>
+                <div class="text-center">
+                  <button class="viewallBtn">View All</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="right"></div>
+        </ng-template>
+      </li>
+      <!-- <li ngbNavItem class="navTabItem">
+        <button ngbNavLink>Won(24)</button>
+        <ng-template ngbNavContent>Second content</ng-template>
+      </li>
+      <li ngbNavItem class="navTabItem">
+        <button ngbNavLink>Lost(20)</button>
+        <ng-template ngbNavContent>Second content</ng-template>
+      </li> -->
+    </ul>
+    <div [ngbNavOutlet]="nav"></div>
+  </section>
+</div>
